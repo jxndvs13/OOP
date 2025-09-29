@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="geWh_gZe0V0dtmlSulfn">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4dm2n1BO3Qpb804rIIWD-1" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="120" width="120" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="4dm2n1BO3Qpb804rIIWD-2" value="= name&lt;div&gt;= password&lt;/div&gt;&lt;div&gt;= account-ID&lt;br&gt;&lt;div&gt;= shipping-address&lt;/div&gt;&lt;div&gt;= payment-info&lt;/div&gt;&lt;/div&gt;&lt;div&gt;= cart&lt;/div&gt;&lt;div&gt;= history&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="4dm2n1BO3Qpb804rIIWD-1" vertex="1">
+          <mxGeometry y="26" width="120" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="4dm2n1BO3Qpb804rIIWD-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="4dm2n1BO3Qpb804rIIWD-1" vertex="1">
+          <mxGeometry y="130" width="120" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="4dm2n1BO3Qpb804rIIWD-4" value="= login()&lt;div&gt;= logout()&lt;/div&gt;&lt;div&gt;= add-promo()&lt;/div&gt;&lt;div&gt;= add-to-cart()&lt;/div&gt;&lt;div&gt;&lt;/div&gt;= buy-cart()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="4dm2n1BO3Qpb804rIIWD-1" vertex="1">
+          <mxGeometry y="138" width="120" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="pJdJ_ZUoixltStJcy77T-1" value="Product" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="120" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="pJdJ_ZUoixltStJcy77T-2" value="= name&lt;div&gt;= product-ID&lt;/div&gt;&lt;div&gt;= price&lt;/div&gt;&lt;div&gt;= promo&lt;/div&gt;&lt;div&gt;= category&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="pJdJ_ZUoixltStJcy77T-1">
+          <mxGeometry y="26" width="120" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="pJdJ_ZUoixltStJcy77T-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="pJdJ_ZUoixltStJcy77T-1">
+          <mxGeometry y="110" width="120" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="pJdJ_ZUoixltStJcy77T-4" value="= stock()&lt;div&gt;= edit-listing()&lt;/div&gt;&lt;div&gt;= make-promo()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="pJdJ_ZUoixltStJcy77T-1">
+          <mxGeometry y="118" width="120" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="pJdJ_ZUoixltStJcy77T-8" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1.017;exitY=0.72;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.076;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4dm2n1BO3Qpb804rIIWD-4" target="pJdJ_ZUoixltStJcy77T-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="380" as="sourcePoint" />
+            <mxPoint x="510" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pJdJ_ZUoixltStJcy77T-9" value="0-many" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="pJdJ_ZUoixltStJcy77T-8">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pJdJ_ZUoixltStJcy77T-10" value="0-many" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="pJdJ_ZUoixltStJcy77T-8">
+          <mxGeometry x="1" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
