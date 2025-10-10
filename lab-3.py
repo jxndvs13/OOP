@@ -21,24 +21,15 @@ class Author:
     def __init__(self, new_id):
         self.a_id = new_id
         self.name = ""
-        self.affiliation = ""
         self.country = ""
-        self.phone = ""
-        self.email = ""
     def add(self):
         print("Create Author with ID: ", self.a_id)
         self.name = input("Name: ")
-        self.affiliation = input("Affiliation: ")
         self.country = input("Country: ")
-        self.phone = input("Phone: ")
-        self.email = input("Email: ")
     def display(self):
         print("Author ID: ", self.a_id)
         print("Name: ", self.name)
-        print("Affiliation: ", self.affiliation)
         print("Home Country: ", self.country)
-        print("Phone Number: ", self.phone)
-        print("Email Address: ", self.email)
 class User:
     def __init__(self, new_id):
         self.u_id = new_id
@@ -153,9 +144,9 @@ def f_user_ad(ad_find, users_all):
         if find_u.address == ad_find:
             return find_u
     return None
-book_counter = 1
-user_counter = 1
-auth_counter = 1
+book_counter = 4
+user_counter = 4
+auth_counter = 4
 logged_in = 0
 all_books = []
 all_users = []
@@ -190,12 +181,17 @@ while True:
                 print("5. Update User Account")
                 print("0. Log Out")
                 print("")
-                uop = input("Select Operation")
+                uop = input("Select Operation: ")
                 if uop == "1": # Display
-                    print("")
-                if uop == "2": # Browse
-                    print("")
-                if uop == "3": # Book
+                    User.display(logged_user)
+                elif uop == "2": # Browse
+                    for book in all_books:
+                        print("-")
+                        author = book.a_id
+                        a_found = f_author_id(author, all_authors)
+                        a_name = a_found.name
+                        Book.display(book, a_name)
+                elif uop == "3": # Book
                     print("1. ID")
                     print("2. Title")
                     print("0. Back")
@@ -206,12 +202,14 @@ while True:
                         found_b = f_book_id(find_id, all_books)
                         if found_b:
                             author = found_b.a_id
-                            a_name = f_author_id(author, all_authors)
+                            a_found = f_author_id(author, all_authors)
+                            a_name = a_found.name
                             Book.display(found_b, a_name)
-                            q_borrow = input("Borrow Book? (Y/N)")
+                            q_borrow = input("Borrow Book? (Y/N) ")
                             if q_borrow == "Y" or q_borrow == "y":
                                 found_title = found_b.title
                                 User.borrow(logged_user, found_title)
+                                print("Book Borrowed")
                             elif q_borrow == "N" or q_borrow == "n":
                                 print("Book not Borrowed")
                             else:
@@ -223,12 +221,14 @@ while True:
                         found_b = f_book_title(find_title, all_books)
                         if found_b:
                             author = found_b.a_id
-                            a_name = f_author_id(author, all_authors)
+                            a_found = f_author_id(author, all_authors)
+                            a_name = a_found.name
                             Book.display(found_b, a_name)
-                            q_borrow = input("Borrow Book? (Y/N)")
+                            q_borrow = input("Borrow Book? (Y/N) ")
                             if q_borrow == "Y" or q_borrow == "y":
                                 found_title = found_b.title
                                 User.borrow(logged_user, found_title)
+                                print("Book Borrowed")
                             elif q_borrow == "N" or q_borrow == "n":
                                 print("Book not Borrowed")
                             else:
@@ -239,7 +239,7 @@ while True:
                         print("Search Canceled")
                     else:
                         print("Invalid Operation")
-                if uop == "4": # Author
+                elif uop == "4": # Author
                     print("1. ID")
                     print("2. Name")
                     print("0. Back")
@@ -259,9 +259,9 @@ while True:
                             Author.display(found_a)
                         else:
                             print("Author not found")
-                if uop == "5": # Update
-                    print("")
-                if uop == "0": # Log Out
+                elif uop == "5": # Update
+                    User.update(logged_user)
+                elif uop == "0": # Log Out
                     logged_in = 0
                     print("User Logged Out")
                 else:
@@ -278,7 +278,11 @@ while True:
     # Browse Books
     elif op == "3":
         for book in all_books:
-            print(book)
+            print("-")
+            author = book.a_id
+            a_found = f_author_id(author, all_authors)
+            a_name = a_found.name
+            Book.display(book,a_name)
     # Check Book
     elif op == "4":
         print("1. ID")
@@ -291,7 +295,8 @@ while True:
             found_b = f_book_id(find_id, all_books)
             if found_b:
                 author = found_b.a_id
-                a_name = f_author_id(author, all_authors)
+                a_found = f_author_id(author, all_authors)
+                a_name = a_found.name
                 Book.display(found_b, a_name)
             else:
                 print("Book not found")
@@ -300,7 +305,8 @@ while True:
             found_b = f_book_title(find_title, all_books)
             if found_b:
                 author = found_b.a_id
-                a_name = f_author_id(author, all_authors)
+                a_found = f_author_id(author, all_authors)
+                a_name = a_found.name
                 Book.display(found_b, a_name)
             else:
                 print("Book not found")
@@ -323,8 +329,8 @@ while True:
             else:
                 print("Author not found")
         elif method == "2":
-            find_title = input("Enter Author Name: ")
-            found_a = f_author_name(find_title, all_authors)
+            find_name = input("Enter Author Name: ")
+            found_a = f_author_name(find_name, all_authors)
             if found_a:
                 Author.display(found_a)
             else:
@@ -368,14 +374,14 @@ while True:
             print("Invalid Operation")
     # Add Book
     elif op == "7":
-        book_id = f"U{book_counter}"
+        book_id = f"B{book_counter}"
         book = Book(book_id)
         Book.add(book)
         book_counter += 1
         all_books.append(book)
     # Add Author
     elif op == "8":
-        auth_id = f"U{auth_counter}"
+        auth_id = f"A{auth_counter}"
         auth = Author(auth_id)
         Author.add(auth)
         auth_counter += 1
