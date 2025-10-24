@@ -152,7 +152,7 @@ while True:
         pickle.dump(all_customers, customer_file)
         customer_file.close()
         card_file = open("bank_cards.dat", "wb")
-        pickle.dump(all_customers, card_file)
+        pickle.dump(all_cards, card_file)
         card_file.close()
 
     #Exit
@@ -160,4 +160,5 @@ while True:
         break
 
     else:
+
         print("Invalid Operation")
