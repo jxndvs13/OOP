@@ -73,16 +73,18 @@ def f_customer(to_find, customers_all):
         if find_c.cid == to_find:
             return find_c
     return None
-def f_card(to_find, cards_all):
-    for find_c in cards_all:
-        if find_c.card_no == to_find:
-            return find_c
+def f_card(finding, cards_all):
+    for find_card in cards_all:
+        if find_card.card_no == finding:
+            return find_card
     return None
 
 customer_file = open("bank_customers.dat", "rb")
 all_customers = pickle.load(customer_file)
 customer_file.close()
-all_cards=[]
+card_file = open("bank_cards.dat", "rb")
+all_cards = pickle.load(card_file)
+card_file.close()
 
 while True:
     print("")
@@ -116,17 +118,14 @@ while True:
         paid = input("Enter Account Number for the one Being Paid: ")
         paid_c = f_customer(paid, all_customers)
         payment = int(input("Enter Payment Amount: "))
-        failure = paying_c.debit(paid)
-        if failure == 1:
-            print("Payment Failed")
-        else:
-            paid_c.credit(payment)
+        paying_c.debit(payment)
+        paid_c.credit(payment)
 
     #Assign Card
     elif op == "4":
         fid = input("Enter Customer ID: ")
         f_customer = f_customer(fid, all_customers)
-        fno = input("Enter Card Number: ")
+        fno = int(input("Enter Card Number: "))
         f_card = f_card(fno, all_cards)
         f_type = f_card.type
         f_customer.add_card(f_card, f_type)
