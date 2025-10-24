@@ -72,21 +72,18 @@ def f_customer(to_find, customers_all):
     for find_c in customers_all:
         if find_c.cid == to_find:
             return find_c
-    print("Customer not found")
     return None
 def f_card(to_find, cards_all):
     for find_c in cards_all:
         if find_c.card_no == to_find:
             return find_c
-    print("Card not found")
     return None
 
 customer_file = open("bank_customers.dat", "rb")
 all_customers = pickle.load(customer_file)
 customer_file.close()
-card_file = open("bank_cards.dat", "rb")
-all_cards = pickle.load(card_file)
-card_file.close()
+all_cards=[]
+
 while True:
     print("")
     print("1. Create Customer")
@@ -142,7 +139,7 @@ while True:
 
     #Display Card
     elif op == "6":
-        fno = input("Enter Card Number: ")
+        fno = int(input("Enter Card Number: "))
         f_card = f_card(fno, all_cards)
         f_card.display()
 
@@ -160,5 +157,4 @@ while True:
         break
 
     else:
-
         print("Invalid Operation")
